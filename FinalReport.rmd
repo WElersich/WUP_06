@@ -21,7 +21,10 @@ GSS <- droplevels(GSS)
 mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum)
 mydata <- na.omit(mydata)
 ```
-
+```{r eval=FALSE}
+mydata <-mydata %>%
+mutate(across(where(is.character), as.factor))
+```
 # Introduction
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
@@ -37,6 +40,13 @@ H_1 Attitude on capital punishment is dependent on race
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+
+
+```{R}
+dim(mydata)
+names(mydata)
+```
+Here we have two categorical variables; "race", which has three values, and "cappun", which has two values. Thus, we should use the cat_cat helper file for this problem. For our graphical analysis, we should use barplots. For numerical analysis, we shall create a table. For inferential results, we shall use the chi-squared test and the fisher test.
 
 # Results
 
