@@ -95,7 +95,7 @@ fisher.test(table1)
 ```{r}
 fisherXY(mydata$race,mydata$cappun)
 ```
-Judging from our P-values, we can reject the null hypothesis, and state that there is a statistical difference between the views of white people on capital punishment and the views of black people on capital punishment. Judging by the odds ratios, we  can determine  that white people are around 2 and half times as likely to support capital punishment as black people, white people are around one and half times as likely to support capital punishment as "other" people, and black people are just above half as likely to support capital punishment as "other" people.
+Judging from our P-values, we can reject the null hypothesis, and state that there is a statistical difference between the views of white people on capital punishment and the views of black people on capital punishment. Judging by the odds ratios, we  can determine  that white people are around 2 and half times as likely to support capital punishment as black people, white people are around one and half times as likely to support capital punishment as other people, and black people are just above half as likely to support capital punishment as other people.
 
 ## More data version
 
@@ -103,3 +103,4 @@ Judging from our P-values, we can reject the null hypothesis, and state that the
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+In this branch, we were able to find statistical difference between the three populations, because the dataset was sufficiently large to do. In contrast, the other branch had too little data to find statistical difference except for in between the black and white populations.
