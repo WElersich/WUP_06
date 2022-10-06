@@ -16,6 +16,7 @@ require(tidyverse)
 require(tigerstats)
 require(knitr)
 require(foreign)
+source("fisherXY.R")
 GSS <-read.dta(file="GSS2016.dta")
 GSS <- droplevels(GSS)
 mydata <- select(GSS,sex,race,cappun,degree,relig,gunlaw,tvhours,owngun,age,wordsum)
@@ -77,7 +78,8 @@ Here we can see that white people are much more likely to support capital punish
 table1 <- xtabs(~race + cappun, data=mydata)
 rowPerc(table1)
 colPerc(table1)
-```
+```    
+
 Here we can see that the highest ocurrance of support for capital punishment is in white people, at 67.75%, followed by other people at 61.25%, and lastly by black people at 47.24%.
 
 
@@ -87,15 +89,12 @@ Here we can see that the highest ocurrance of support for capital punishment is 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
-```
-```{r}
-fisherXY(mydata$race,mydata$cappun)
-```
-Because the p-values are very low, we can reject the null hypothesis. Furthermore, the odds ratio given by this test states that white people people are 2.343236 times more likely than black people to support capital punishment.
+fisherXY(mydata$race,mydata$cappun,printAll = TRUE)
+```   
+
+Because the p-value for black and white are very low, we can reject the null hypothesis. Furthermore, the odds ratio given by this test states that white people people are 2.343236 times more likely than black people to support capital punishment. For white and other, the p-value is too high for us to reject the null hypothesis. This is also the case for black and other.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
