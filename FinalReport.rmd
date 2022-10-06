@@ -73,8 +73,12 @@ Here we can see that white people are much more likely to support capital punish
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
-
-
+```{r}
+table1 <- xtabs(~race + cappun, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+Here we can see that the highest ocurrance of support for capital punishment is in white people, at 67.75%, followed by other people at 61.25%, and lastly by black people at 47.24%.
 
 
 
@@ -82,9 +86,15 @@ Here we can see that white people are much more likely to support capital punish
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-`
-
-
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+```{r}
+fisherXY(mydata$race,mydata$cappun)
+```
+Because the p-values are very low, we can reject the null hypothesis. Furthermore, the odds ratio given by this test states that white people people are 2.343236 times more likely than black people to support capital punishment.
 
 # Discussion and Conclusion
 
